@@ -1,0 +1,4 @@
+.ddev/
+.DS_Store/
+.git/
+public/wp-content/uploads/
