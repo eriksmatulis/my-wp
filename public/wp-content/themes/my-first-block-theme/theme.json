@@ -46,6 +46,16 @@
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system)"
 		},
+		"blocks": {
+			"core/heading": {
+				"typography": {
+					"fontFamily":"Verdana, Arial, Helvetica, sans-serif"
+					},
+				"color": {
+					"text": "orange"
+				}
+			}
+		},
 		"elements": {
 			"button": {
 				"color": {
