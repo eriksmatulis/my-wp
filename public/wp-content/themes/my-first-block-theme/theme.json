@@ -54,6 +54,12 @@
 				"color": {
 					"text": "orange"
 				}
+			},
+			"core/paragraph": {
+				"typography": {
+					"lineHeight": "1.6",
+					"fontSize": "1.1rem"
+				}
 			}
 		},
 		"elements": {
