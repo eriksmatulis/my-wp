@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Title: My Two-Column Section
  * Slug: myblocks/my-two-column
  * Categories: columns
