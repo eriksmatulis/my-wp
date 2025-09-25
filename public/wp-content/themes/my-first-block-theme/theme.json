@@ -23,6 +23,16 @@
 					"slug": "system",
 					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
 					"name": "System Font"
+				},
+				{
+					"slug": "formal",
+					"fontFamily": "Verdana, Arial, Helvetica, sans-serif",
+					"name": "Formal Fonts"
+				},
+				{
+					"slug": "systemserif",
+					"fontFamily": "-apple-system, Georgia, Garamond, Palatino",
+					"name": "Serifs"
 				}
 			],
 			"fontSizes": [
