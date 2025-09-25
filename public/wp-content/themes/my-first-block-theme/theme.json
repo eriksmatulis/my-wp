@@ -9,7 +9,12 @@
 					"color": "#7396ff",
 					"name": "Secondary"
 				},
-				{ "slug": "neutral", "color": "#ebf3fc", "name": "Neutral" }
+				{ "slug": "neutral", "color": "#ebf3fc", "name": "Neutral" },
+				{ "slug": "accent", "color": "red", "name": "Accent" },
+				{ "slug": "primary2", "color": "#32a852", "name": "Primary #2"},
+				{ "slug": "secondary2", "color": "#a5a852", "name": "Secondary #2"},
+				{ "slug": "accent2", "color": "#a134ad", "name": "Accent #2"},
+				{ "slug": "secondary3", "color": "#ecf7ab", "name": "Secondary #3"}
 			]
 		},
 		"typography": {
