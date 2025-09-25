@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "myblocks/myheader",
+	"version": "0.1.0",
+	"title": "My Custom Header",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true
+		}
+	},
+	"textdomain": "myheader",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php"
+}

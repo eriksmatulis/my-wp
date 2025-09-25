@@ -1,0 +1,35 @@
+{
+	"version": 2,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary", "color": "#ffdbfe", "name": "Primary" },
+				{
+					"slug": "secondary",
+					"color": "#7396ff",
+					"name": "Secondary"
+				},
+				{ "slug": "neutral", "color": "#ebf3fc", "name": "Neutral" }
+			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"slug": "system",
+					"fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+					"name": "System Font"
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "size": "14px", "name": "Small" },
+				{ "slug": "medium", "size": "18px", "name": "Medium" },
+				{ "slug": "large", "size": "32px", "name": "Large" }
+			]
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--system)"
+		}
+	}
+}
