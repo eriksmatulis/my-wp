@@ -1,7 +1,7 @@
 <?php
-/**
+/*
  * Title: My Hero Section
- * Slug: myblocks/my-hero
+ * Slug: my-first-block-theme/my-hero
  * Categories: featured
  */
 ?>
