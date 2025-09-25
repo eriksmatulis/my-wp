@@ -49,5 +49,28 @@ return array(
 		'textdomain' => 'myheader',
 		'editorScript' => 'file:./index.js',
 		'render' => 'file:./render.php'
+	),
+	'mysidebar' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'myblocks/mysidebar',
+		'version' => '0.1.0',
+		'title' => 'My Custom Sidebar',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'Example block scaffolded with Create Block tool.',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false,
+			'color' => array(
+				'background' => true,
+				'text' => true
+			)
+		),
+		'textdomain' => 'myheader',
+		'editorScript' => 'file:./index.js',
+		'render' => 'file:./render.php'
 	)
 );

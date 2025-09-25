@@ -4,5 +4,5 @@
  */
 ?>
 <div>
-	<p <?php echo get_block_wrapper_attributes(); ?>>© <?php echo date("Y"); ?></p>
+	<p style="text-align: center;" <?php echo get_block_wrapper_attributes(); ?>>© <?php echo date("Y"); ?></p>
 </div>

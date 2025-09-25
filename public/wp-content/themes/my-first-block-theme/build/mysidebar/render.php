@@ -3,6 +3,6 @@
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
 ?>
-<div>
-	<p style="text-align: center;" <?php echo get_block_wrapper_attributes(); ?>>© <?php echo date("Y"); ?></p>
+<div style="position:absolute; right:0; width:200px; height:400px;">
+	<p>This is my custom sidebar!</p>
 </div>
