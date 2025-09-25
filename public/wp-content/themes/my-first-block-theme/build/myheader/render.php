@@ -4,5 +4,7 @@
  */
 ?>
 <div>
+	<!-- wp:site-title /-->
+	<!-- wp:site-tagline /-->
 	<p style="text-align: center;">This is my custom header!</p>
 </div>

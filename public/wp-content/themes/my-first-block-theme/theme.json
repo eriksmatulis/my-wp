@@ -45,6 +45,17 @@
 	"styles": {
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system)"
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"text": "#ffffff",
+					"background": "#800080"
+				},
+				"border": {
+					"radius": "15px"
+				}
+			}
 		}
 	}
 }
