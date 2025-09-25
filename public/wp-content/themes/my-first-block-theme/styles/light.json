@@ -1,0 +1,35 @@
+{
+	"version": 2,
+	"title": "Light Mode",
+	"settings": {},
+	"styles": {
+		"blocks": {
+			"core/heading": {
+				"color": {
+					"text": "black"
+				}
+			},
+			"core/paragraph": {
+				"typography": {
+					"lineHeight": "1.6",
+					"fontSize": "1.1rem"
+				},
+                "color": {
+                    "text": "black",
+                    "background": "whitesmoke"
+                }
+			}
+		},
+		"elements": {
+			"button": {
+				"color": {
+					"text": "#800080",
+					"background": "#ffffff"
+				},
+				"border": {
+					"radius": "15px"
+				}
+			}
+		}
+	}
+}
