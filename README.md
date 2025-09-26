@@ -2,6 +2,7 @@
 Download the repository and use DDEV with *ddev launch* command to start your site using Docker.
 
 # Features added
+- Custom block theme
 - Tailwind CSS with a plugin for it called Flowbite that allows easily creating carousels etc.
 - Sidebar widget that allows a user to customize its content from the widgets menu
 - Hero section with an image carousel (TODO: change to dynamic featured post content)
