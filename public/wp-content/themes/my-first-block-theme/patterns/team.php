@@ -5,6 +5,7 @@
  * Categories: columns
  */
 ?>
+
 <!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center">Meet our team!</h2>
 <!-- /wp:heading -->
