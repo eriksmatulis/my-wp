@@ -73,5 +73,11 @@
 				}
 			}
 		}
-	}
+	},
+	"customTemplates": [
+        {
+            "name": "archive-wunderteam",
+            "title": "Archive: Team Member CPT"
+        }
+	]
 }
