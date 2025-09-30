@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Team Custom Post Type
+ * Plugin Name: Team Member Custom Post Type
  * Description: Plugin for creating and inserting a team member custom post type.
  * Version: 1.0
  * Author: ERM
