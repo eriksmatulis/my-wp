@@ -9,3 +9,7 @@ Requires PHP: 7.4
 License: GPL-2.0-or-later
 Text Domain: my-first-block-theme
 */
+
+.my-sidebar {
+    padding: 1em;
+}
