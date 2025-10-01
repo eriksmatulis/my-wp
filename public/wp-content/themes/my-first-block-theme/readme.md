@@ -14,8 +14,11 @@ Templates:
 - single.html
 
 Template parts:
-- Myfooter
-- Myheader
+- footer
+- header
+- sidebar
+- Myfooter (deprecated)
+- Myheader (deprecated)
 
 Patterns:
 - Hero section
