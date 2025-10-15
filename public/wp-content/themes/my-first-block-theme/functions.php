@@ -33,3 +33,41 @@ function myblocks_myheader_block_init() {
 	}
 }
 add_action( 'init', 'myblocks_myheader_block_init' );
+
+// REST API
+add_action('rest_api_init', function () {
+  register_rest_route('intern/v1', '/hello/', array(
+    'methods' => 'GET',
+    'callback' => function () {
+      return array('message' => 'Hello from REST API!');
+    },
+  ));
+});
+
+// Custom REST route that returns 5 latest posts and their link+title
+add_action('rest_api_init', function () {
+	register_rest_route('intern/v1', '/recent/', array(
+		'methods' => 'GET',
+		'callback' => function () {
+
+			// Get recent posts (limit to 5 max)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 5
+			));
+			// Create new array to hold posts that will be displayed in REST call
+			$rest_posts = array();
+			
+			for ($i=0; $i < count($recent); $i++) {
+				// Create new array for each post
+				$post = array();	
+				// Add current post's hyperlink and title to post array
+				$post['post_link'] = $recent[$i]['guid'];
+				$post['post_title'] = $recent[$i]['post_title'];
+				// Add current post's data to posts array
+				array_push($rest_posts, $post);
+			}
+
+			return array('recent_posts' => $rest_posts);
+		},
+	));
+});

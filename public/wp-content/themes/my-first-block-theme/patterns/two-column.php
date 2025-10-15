@@ -6,6 +6,10 @@
  */
 ?>
 
+<div id="api-posts"></div>
+<script src="<?php echo get_template_directory_uri(); ?>/js/api-posts.js"></script>
+
+
 <!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"66.66%"} -->
 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading -->
