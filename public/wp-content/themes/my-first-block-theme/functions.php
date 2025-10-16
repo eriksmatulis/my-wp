@@ -121,7 +121,10 @@ add_action('rest_api_init', function () {
 				$id = $x['ID'];
 
 				$post['post_id'] = $id;
-				$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				if (!empty(get_post_custom($id))) {
+					if (isset(get_post_custom($id)['tutorial_author_name']))
+						$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				}
 				$post['post_difficulty_level'] = "easy";
 				$post['post_title'] = $x['post_title'];
 				// Get array of post's topic values and only grab their name value
@@ -201,9 +204,6 @@ add_action('rest_api_init', function () {
 				)
 			));
 
-// Things to return
-// ID, Title, Author, Difficulty level, Topic name, Tutorial link
-
 			// Create new array to hold posts that will be displayed in REST call
 			$rest_posts = array();
 			
@@ -213,7 +213,10 @@ add_action('rest_api_init', function () {
 				$id = $x['ID'];
 
 				$post['post_id'] = $id;
-				$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				if (!empty(get_post_custom($id))) {
+					if (isset(get_post_custom($id)['tutorial_author_name']))
+						$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				}
 				$post['post_difficulty_level'] = "hard";
 				$post['post_title'] = $x['post_title'];
 				// Get array of post's topic values and only grab their name value
@@ -226,4 +229,54 @@ add_action('rest_api_init', function () {
 		return array('hard_tutorials' => $rest_posts);
     },
   ));
+});
+
+// Author-wise tutorial lists
+add_action('rest_api_init', function () {
+	register_rest_route('learnpress/v1', '/tutauthors/', array(
+		'methods' => 'GET',
+		'callback' => function () {
+			// Get tutorial posts (limit to 20)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 20,
+				'post_type' => 'tutorials'
+			));
+
+			$rest_posts = array();
+			$authors = array();
+			
+			foreach ($recent as $x) {
+				// Create new array for each matching post
+				$post = array();
+				$id = $x['ID'];
+
+				$post['post_id'] = $id;
+				if (!empty(get_post_custom($id))) {
+					if (isset(get_post_custom($id)['tutorial_author_name']))
+						$author = implode( get_post_custom($id)['tutorial_author_name'] );
+					$post['post_author_name'] = $author;
+					if ( !in_array($author, $authors)) {
+						array_push($authors, $author);
+					}
+				else $author = "Undefined";
+				if ( !in_array($author, $authors)) {
+					array_push($authors, $author);	
+				}
+
+				}
+				$post['post_title'] = $x['post_title'];
+				// Get array of post's topic values and only grab their name value
+				if (!empty(get_the_terms($id, 'topic'))) {
+					$post['post_topics'] = array_column(get_the_terms($id, 'topic'), 'name');
+				}
+				$post['post_link'] = $x['guid'];
+			//	array_push($authors[$author], $post);
+			//	array_push($authors, $post);
+			}
+		
+		//$authors[0] = array($authors[0] => "nwah");
+		return $authors;
+		return array('tutorials_by_author' => $authors);
+		},
+	));
 });
