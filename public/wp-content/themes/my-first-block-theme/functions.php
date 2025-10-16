@@ -71,3 +71,159 @@ add_action('rest_api_init', function () {
 		},
 	));
 });
+
+// Latest 5 tutorials
+// Custom REST route that returns 5 latest posts and their link+title
+add_action('rest_api_init', function () {
+	register_rest_route('learnpress/v1', '/recent_tutorials/', array(
+		'methods' => 'GET',
+		'callback' => function () {
+
+			// Get recent posts (limit to 5 max)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 5,
+				'post_type' => 'tutorials'
+			));
+			return $recent;
+		},
+	));
+});
+
+// Tutorials filtered by difficulty
+// EASY
+add_action('rest_api_init', function () {
+  register_rest_route('learnpress/v1', '/easy/', array(
+    'methods' => 'GET',
+    'callback' => function () {
+
+			// Get recent hard tutorial (limit to 10 max)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 10,
+				'post_type' => 'tutorials',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'easy'
+					)
+				)
+			));
+
+// Things to return
+// ID, Title, Author, Difficulty level, Topic name, Tutorial link
+
+			// Create new array to hold posts that will be displayed in REST call
+			$rest_posts = array();
+			
+			foreach ($recent as $x) {
+				// Create new array for each matching post
+				$post = array();
+				$id = $x['ID'];
+
+				$post['post_id'] = $id;
+				$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				$post['post_difficulty_level'] = "easy";
+				$post['post_title'] = $x['post_title'];
+				// Get array of post's topic values and only grab their name value
+				$post['post_topics'] = array_column(get_the_terms($id, 'topic'), 'name');
+				$post['post_link'] = $x['guid'];
+
+				array_push($rest_posts, $post);
+			}
+
+		return array('easy_tutorials' => $rest_posts);
+    },
+  ));
+});
+
+// MEDIUM
+add_action('rest_api_init', function () {
+  register_rest_route('learnpress/v1', '/medium/', array(
+    'methods' => 'GET',
+    'callback' => function () {
+
+			// Get recent hard tutorial (limit to 10 max)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 10,
+				'post_type' => 'tutorials',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'medium'
+					)
+				)
+			));
+
+// Things to return
+// ID, Title, Author, Difficulty level, Topic name, Tutorial link
+
+			// Create new array to hold posts that will be displayed in REST call
+			$rest_posts = array();
+			
+			foreach ($recent as $x) {
+				// Create new array for each matching post
+				$post = array();
+				$id = $x['ID'];
+
+				$post['post_id'] = $id;
+				$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				$post['post_difficulty_level'] = "medium";
+				$post['post_title'] = $x['post_title'];
+				// Get array of post's topic values and only grab their name value
+				$post['post_topics'] = array_column(get_the_terms($id, 'topic'), 'name');
+				$post['post_link'] = $x['guid'];
+
+				array_push($rest_posts, $post);
+			}
+
+		return array('medium_tutorials' => $rest_posts);
+    },
+  ));
+});
+
+// HARD
+add_action('rest_api_init', function () {
+  register_rest_route('learnpress/v1', '/hard/', array(
+    'methods' => 'GET',
+    'callback' => function () {
+
+			// Get recent hard tutorial (limit to 10 max)
+			$recent = wp_get_recent_posts(array(
+				'numberposts' => 10,
+				'post_type' => 'tutorials',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'difficulty',
+						'field' => 'slug',
+						'terms' => 'hard'
+					)
+				)
+			));
+
+// Things to return
+// ID, Title, Author, Difficulty level, Topic name, Tutorial link
+
+			// Create new array to hold posts that will be displayed in REST call
+			$rest_posts = array();
+			
+			foreach ($recent as $x) {
+				// Create new array for each matching post
+				$post = array();
+				$id = $x['ID'];
+
+				$post['post_id'] = $id;
+				$post['post_author_name'] = get_post_custom($id)['tutorial_author_name'];
+				$post['post_difficulty_level'] = "hard";
+				$post['post_title'] = $x['post_title'];
+				// Get array of post's topic values and only grab their name value
+				$post['post_topics'] = array_column(get_the_terms($id, 'topic'), 'name');
+				$post['post_link'] = $x['guid'];
+
+				array_push($rest_posts, $post);
+			}
+
+		return array('hard_tutorials' => $rest_posts);
+    },
+  ));
+});
